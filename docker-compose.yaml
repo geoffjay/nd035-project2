@@ -8,4 +8,4 @@ services:
       dockerfile: Dockerfile
     container_name: nd035-eureka
     ports:
-      - 8762:8762
+      - 8761:8761

@@ -1,4 +1,4 @@
-package edu.udacity.nd035.course2.eureka.server;
+package com.udacity.eureka;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

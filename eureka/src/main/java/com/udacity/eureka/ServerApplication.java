@@ -1,4 +1,4 @@
-package edu.udacity.nd035.course2.eureka.server;
+package com.udacity.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
