@@ -1,5 +1,5 @@
 ---
-version: '3'
+version: '3.2'
 
 services:
   eureka:
@@ -9,3 +9,19 @@ services:
     container_name: nd035-eureka
     ports:
       - 8761:8761
+    restart: always
+  pricing-service:
+    build:
+      context: ./pricing-service
+      dockerfile: Dockerfile
+    container_name: nd035-pricing-service
+    ports:
+      - 8082:8082
+    depends_on:
+      - "eureka"
+    restart: always
+    environment:
+      PORT: 8082
+      LOG_LEVEL: ERROR
+      EUREKA_SERVER_HOST: eureka
+      EUREKA_SERVER_PORT: 8761

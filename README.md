@@ -1,16 +1,42 @@
-# ND035-P02-VehiclesAPI-Project
-
-Project repository for JavaND Project 2, where students implement a Vehicles API using Java and Spring Boot that can communicate with separate location and pricing services.
-
-## Instructions
-
-Check each component to see its details and instructions. Note that all three applications
-should be running at once for full operation. Further instructions are available in the classroom.
-
-- [Vehicles API](vehicles-api/README.md)
-- [Pricing Service](pricing-service/README.md)
-- [Boogle Maps](boogle-maps/README.md)
+# Udacity Java Nanodegree Vehicles API Project
 
 ## Dependencies
 
-The project requires the use of Maven and Spring Boot, along with Java v11.
+The project requires the use of Maven and Spring Boot, along with Java 11.
+
+## Building
+
+If Java 11 is already set in the environment this is being built on all of the
+services in this project can be built using the included `Makefile`.
+
+```sh
+make
+```
+
+If some other version is set it may be necessary to set the `JAVA_HOME`
+variable for the build. For example, on Linux.
+
+```sh
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk make
+```
+
+## Running
+
+### Manually
+
+### Docker
+
+If `docker` and `docker-compose` are installed everything can be run using the
+included stack file. This assumes that previous steps for building the services
+have been prepared. If not, these are the only steps required to do this.
+
+```sh
+make
+make image
+```
+
+Running everything can now be done with:
+
+```sh
+docker-compose up
+```
