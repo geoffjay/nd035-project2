@@ -33,3 +33,11 @@ services:
     ports:
       - 9191:9191
     restart: always
+  vehicles-api:
+    build:
+      context: ./vehicles-api
+      dockerfile: Dockerfile
+    container_name: nd035-vehicles-api
+    ports:
+      - 8080:8080
+    restart: always

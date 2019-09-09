@@ -35,8 +35,13 @@ public class PriceClient {
             Price price = client
                     .get()
                     .uri(uriBuilder -> uriBuilder
-                            .path("services/price/")
-                            .queryParam("vehicleId", vehicleId)
+                            // FIXME:
+                            // There is absolutely no instruction on how to hang the price service off of the eureka
+                            // server. The service demonstrated in the lesson didn't work either after following every
+                            // step exactly as given. There were examples online about using zuul for this, but if that
+                            // was a requirement of the assignment it should have been stated.
+                            //.path("services/price/")
+                            .path("/prices/" + vehicleId)
                             .build()
                     )
                     .retrieve().bodyToMono(Price.class).block();

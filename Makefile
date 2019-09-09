@@ -19,7 +19,7 @@ pricing:
 vehicles:
 	@cd vehicles-api; mvn package
 
-build: boogle eureka pricing #vehicles
+build: boogle eureka pricing vehicles
 
 clean:
 	@cd boogle-maps; mvn clean
