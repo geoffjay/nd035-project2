@@ -1,14 +1,8 @@
 package com.udacity.pricing.domain.price;
 
 import com.udacity.pricing.service.PriceException;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
-import java.util.stream.LongStream;
 
 public interface PriceRepository extends CrudRepository<Price, Long> {
 
@@ -18,5 +12,6 @@ public interface PriceRepository extends CrudRepository<Price, Long> {
      * @return price of the requested vehicle
      * @throws PriceException vehicleID was not found
      */
+    @Query("select d.id, d.currency, d.price from #{#entityName} d where d.vehicleId=:vehicleId")
     public Price getPrice(Long vehicleId) throws PriceException;
 }
