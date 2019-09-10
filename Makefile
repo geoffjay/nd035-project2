@@ -4,6 +4,8 @@
 
 all: build
 
+build: boogle eureka pricing vehicles
+
 deps:
 	docker pull openjdk:11
 
@@ -19,18 +21,18 @@ pricing:
 vehicles:
 	@cd vehicles-api; mvn package
 
-build: boogle eureka pricing vehicles
-
 clean:
 	@cd boogle-maps; mvn clean
 	@cd eureka; mvn clean
 	@cd pricing-service; mvn clean
 	@cd vehicles-api; mvn clean
-	#@docker-compose down
-	#@docker rmi nd035-eureka
-	#@docker rmi nd035-pricing-service
-	#@docker rmi nd035-boogle-maps
-	#@docker rmi nd035-vehicles-api
+
+clean-image:
+	@docker-compose down
+	@docker rmi nd035-eureka
+	@docker rmi nd035-pricing-service
+	@docker rmi nd035-boogle-maps
+	@docker rmi nd035-vehicles-api
 
 image:
 	@docker-compose build
