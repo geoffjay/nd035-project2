@@ -93,9 +93,7 @@ class CarController {
     ResponseEntity<?> put(@PathVariable Long id, @Valid @RequestBody Car car) {
         car.setId(id);
         carService.save(car);
-        // Retrieving the car here may be unnecessary
-        Car savedCar = carService.findById(car.getId());
-        Resource<Car> resource = assembler.toResource(savedCar);
+        Resource<Car> resource = assembler.toResource(car);
         return ResponseEntity.ok(resource);
     }
 
